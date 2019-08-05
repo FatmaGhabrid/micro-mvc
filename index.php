@@ -29,8 +29,6 @@ function autoloadClass($class)
 
 spl_autoload_register('autoloadClass');
 
-
-
 /**
  * Exemples de routes:
  *
@@ -43,14 +41,56 @@ spl_autoload_register('autoloadClass');
 
 
 switch ($_GET['model']) {
+    //SwitchCase pour le suscriber:
     case 'subscriber':
-        # code...
-        break;
+    switch($_GET['method']) {
 
+        case 'list':
+    SubscriberController::list();
+            break;
+
+        case 'read':
+        SubscriberController::read( intval( $_GET['id'] ) );
+            break;
+
+        case 'new':
+        SubscriberController::new($_POST);
+            break;
+
+        case 'edit':
+        SubscriberController::edit($_GET['id']);
+            break;
+
+        case 'delete':
+        SubscriberController::delete($_GET['id']);
+            break;
+    }
+    break;
+
+
+        //SwitchCase pour le suscriber_book:
     case 'subscriber_book':
-        # code...
-        break;
+    switch($_GET['method']) {
 
+        case 'list':
+        SubscriberBookController::list();
+            break;
+
+        case 'read':
+        SubscriberBookController::read( intval( $_GET['id'] ) );
+            break;
+
+        case 'new':
+        SubscriberBookController::new($_POST);
+            break;
+
+        case 'delete':
+        SubscriberBookController::delete($_GET['id']);
+            break;
+    }
+    break;
+
+        //SwitchCase pour le book:
     case 'book':
             switch($_GET['method']) {
 
@@ -75,8 +115,11 @@ switch ($_GET['model']) {
                     break;
             }
         break;
-
     default:
         # code...
         break;
 }
+
+
+
+

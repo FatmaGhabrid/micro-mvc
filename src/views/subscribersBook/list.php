@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <?php foreach ($books as $book) : ?>
-        <?= $book['title'] ?> <br>
+    <?php foreach ($subscribersBook as $subscriberBook) : ?>
+        <?= $subscriberBook['title'] ?> <br>
     <?php endforeach; ?>
 
     <!-- Optional JavaScript -->
